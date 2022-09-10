@@ -13,7 +13,7 @@ const User = require("../../models/User");
 // @access    Public
 router.get("/", (req, res) => res.send(`User Route...`));
 
-// @route     POST api/users
+// @route     POST api/users/register
 // @desc      Register user
 // @access    Public
 router.post(
