@@ -1,4 +1,6 @@
 {
   "mongoURI": "mongodb+srv://Ruturaj:Ruturaj%4000@devconnector.0zva1de.mongodb.net/?retryWrites=true&w=majority",
-  "jwtSecret": "mysecrettoken"
+  "jwtSecret": "mysecrettoken",
+  "githubClientId": "03c38263c18426e53e46",
+  "githubSecret": "34d48c634d896cd64f4050cd5a061c35f40d2bb5"
 }
