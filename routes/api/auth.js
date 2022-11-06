@@ -54,7 +54,7 @@ router.post(
           .json({ error: [{ msg: "Invalid Credentials" }] });
       }
 
-      // Match User's data with the database.
+      // Match User's password data with the database.
       const isMatch = await bcrypt.compare(password, user.password);
 
       // If not, then send error.
