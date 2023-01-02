@@ -1,7 +1,10 @@
 import React, { Fragment, useState } from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { setAlert } from "../../actions/alert";
+import PropTypes from "prop-types";
 
-const Register = () => {
+const Register = ({ setAlert }) => {
   const [formData, setFormData] = useState({
     name: ``,
     email: ``,
@@ -23,9 +26,10 @@ const Register = () => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      console.log(`Passwords do not match`);
+      setAlert(`Passwords do not match`, `danger`, 3000);
     } else {
       console.log(`SUCCESS`);
+      setAlert(`You are logged in`, `success`);
     }
   };
 
@@ -93,4 +97,10 @@ const Register = () => {
   );
 };
 
-export default Register;
+Register.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+};
+
+// Connects this react component with redux, to use the redux features.
+// connect takes in 2 arguments -> 1. the state and 2. the action type you want to use (These action types will be available as "props.setAlert".)
+export default connect(null, { setAlert })(Register);
