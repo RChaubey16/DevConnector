@@ -8,7 +8,7 @@ connectDB();
 // Init middleware
 app.use(express.json({ extended: false })); // request-body parser.
 
-// A simple get request whick takes a callback function with the request and response as arguments.
+// A simple get request which takes a callback function with the request and response as arguments.
 app.get("/", (req, res) => res.send(`API up and running...`));
 
 // Define routes.
