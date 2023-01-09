@@ -1,8 +1,11 @@
 import React, { Fragment, useState } from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { createProfile } from "../../actions/profile";
+import { withRouter } from "../../utils/withRouter";
 
-const Createprofile = (props) => {
+const Createprofile = ({ createProfile, history }) => {
   const [formData, setFormData] = useState({
     company: ``,
     website: ``,
@@ -38,6 +41,11 @@ const Createprofile = (props) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+    createProfile(formData, history);
+  };
+
   return (
     <Fragment>
       <h1 className="large text-primary">Create Your Profile</h1>
@@ -46,7 +54,7 @@ const Createprofile = (props) => {
         profile stand out
       </p>
       <small>* = required field</small>
-      <form className="form">
+      <form className="form" onSubmit={(e) => onSubmitHandler(e)}>
         <div className="form-group">
           <select
             name="status"
@@ -217,6 +225,9 @@ const Createprofile = (props) => {
   );
 };
 
-Createprofile.propTypes = {};
+Createprofile.propTypes = {
+  createProfile: PropTypes.func.isRequired,
+};
 
-export default Createprofile;
+// withRouter is used to make the history object available in the component via props.
+export default connect(null, { createProfile })(withRouter(Createprofile));
