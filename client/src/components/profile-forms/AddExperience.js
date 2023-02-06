@@ -1,10 +1,11 @@
 import React, { useState, Fragment } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addExperience } from "../../actions/profile";
 
 const AddExperience = ({ addExperience, history }) => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     company: "",
     title: "",
@@ -34,7 +35,7 @@ const AddExperience = ({ addExperience, history }) => {
         class="form"
         onSubmit={(e) => {
           e.preventDefault();
-          addExperience(formData, history);
+          addExperience(formData, navigate);
         }}
       >
         <div class="form-group">

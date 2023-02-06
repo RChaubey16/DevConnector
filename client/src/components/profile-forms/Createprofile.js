@@ -1,11 +1,11 @@
 import React, { Fragment, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createProfile } from "../../actions/profile";
-import { withRouter } from "../../utils/withRouter";
 
 const Createprofile = ({ createProfile, history }) => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     company: ``,
     website: ``,
@@ -43,7 +43,7 @@ const Createprofile = ({ createProfile, history }) => {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    createProfile(formData, history);
+    createProfile(formData, navigate);
   };
 
   return (
@@ -230,4 +230,4 @@ Createprofile.propTypes = {
 };
 
 // withRouter is used to make the history object available in the component via props.
-export default connect(null, { createProfile })(withRouter(Createprofile));
+export default connect(null, { createProfile })(Createprofile);

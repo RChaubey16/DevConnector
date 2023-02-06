@@ -24,7 +24,7 @@ export const getCurrentProfile = () => async (dispatch) => {
 
 // Create or update profile
 export const createProfile =
-  (formData, history, edit = false) =>
+  (formData, navigate, edit = false) =>
   async (dispatch) => {
     try {
       const config = {
@@ -44,7 +44,7 @@ export const createProfile =
 
       if (!edit) {
         // Redirect to dashboard, if operation is not the edit operation.
-        history.push("/dashboard");
+        navigate("/dashboard");
       }
     } catch (error) {
       const errors = error.response.data.errors;
@@ -62,7 +62,7 @@ export const createProfile =
   };
 
 // Add experience
-export const addExperience = (formData, history) => async (dispatch) => {
+export const addExperience = (formData, navigate) => async (dispatch) => {
   try {
     const config = {
       headers: {
@@ -78,7 +78,7 @@ export const addExperience = (formData, history) => async (dispatch) => {
     dispatch(setAlert("Experience added.", `success`));
 
     // Redirect to dashboard, if operation is not the edit operation.
-    history.push("/dashboard");
+    navigate("/dashboard");
   } catch (error) {
     const errors = error.response.data.errors;
     if (errors) {
@@ -95,7 +95,7 @@ export const addExperience = (formData, history) => async (dispatch) => {
 };
 
 // Add education
-export const addEducation = (formData, history) => async (dispatch) => {
+export const addEducation = (formData, navigate) => async (dispatch) => {
   try {
     const config = {
       headers: {
@@ -111,7 +111,7 @@ export const addEducation = (formData, history) => async (dispatch) => {
     dispatch(setAlert("Education added.", `success`));
 
     // Redirect to dashboard, if operation is not the edit operation.
-    history.push("/dashboard");
+    navigate("/dashboard");
   } catch (error) {
     const errors = error.response.data.errors;
     if (errors) {

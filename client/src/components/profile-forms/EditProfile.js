@@ -1,16 +1,15 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createProfile, getCurrentProfile } from "../../actions/profile";
-import { withRouter } from "../../utils/withRouter";
-
 const EditProfile = ({
   profile: { profile, loading },
   createProfile,
   getCurrentProfile,
   history,
 }) => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     company: ``,
     website: ``,
@@ -66,7 +65,7 @@ const EditProfile = ({
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    createProfile(formData, history, true);
+    createProfile(formData, navigate, true);
   };
 
   return (
@@ -260,5 +259,5 @@ const mapStateToProps = (state) => ({
 
 // withRouter is used to make the history object available in the component via props.
 export default connect(mapStateToProps, { createProfile, getCurrentProfile })(
-  withRouter(EditProfile)
+  EditProfile
 );
