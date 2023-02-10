@@ -6,6 +6,7 @@ import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Alert from "./components/layout/Alert";
 import Dashboard from "./components/dashboard/Dashboard";
+import Profiles from "./components/profiles/Profiles";
 import Createprofile from "./components/profile-forms/Createprofile";
 import EditProfile from "./components/profile-forms/EditProfile";
 import AddExperience from "./components/profile-forms/AddExperience";
@@ -40,6 +41,7 @@ const App = () => {
             <Routes>
               <Route path="/login" exact element={<Login />} />
               <Route path="/register" exact element={<Register />} />
+              <Route path="/profiles" exact element={<Profiles />} />
               <Route
                 path="/dashboard"
                 exact
