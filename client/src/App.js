@@ -18,6 +18,7 @@ import store from "./store";
 import setAuthToken from "./utils/setAuthToken";
 import { loadUser } from "./actions/auth";
 import "./App.css";
+import Profile from "./components/profile/Profile";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -42,6 +43,7 @@ const App = () => {
               <Route path="/login" exact element={<Login />} />
               <Route path="/register" exact element={<Register />} />
               <Route path="/profiles" exact element={<Profiles />} />
+              <Route path="/profile/:id" exact element={<Profile />} />
               <Route
                 path="/dashboard"
                 exact
