@@ -7,10 +7,12 @@ import Register from "./components/auth/Register";
 import Alert from "./components/layout/Alert";
 import Dashboard from "./components/dashboard/Dashboard";
 import Profiles from "./components/profiles/Profiles";
+import Profile from "./components/profile/Profile";
 import Createprofile from "./components/profile-forms/Createprofile";
 import EditProfile from "./components/profile-forms/EditProfile";
 import AddExperience from "./components/profile-forms/AddExperience";
 import AddEducation from "./components/profile-forms/AddEducation";
+import Posts from "./components/posts/Posts";
 import PrivateRoute from "./components/routing/PrivateRoute";
 // Redux
 import { Provider } from "react-redux";
@@ -18,7 +20,6 @@ import store from "./store";
 import setAuthToken from "./utils/setAuthToken";
 import { loadUser } from "./actions/auth";
 import "./App.css";
-import Profile from "./components/profile/Profile";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -86,6 +87,15 @@ const App = () => {
                 element={
                   <PrivateRoute>
                     <AddEducation />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/posts"
+                exact
+                element={
+                  <PrivateRoute>
+                    <Posts />
                   </PrivateRoute>
                 }
               />
