@@ -21,6 +21,44 @@ A social networking platform for developers built with the MERN stack (MongoDB, 
   - Add/Delete education
   - Link social media profiles
 
+## Screenshots
+
+### Home Page
+![Home Page](assets/home.png)
+*Landing page of DevConnector*
+
+### User Authentication
+![Register Page](assets/register.png)
+*User registration page with form validation*
+
+![Login Page](assets/login.png)
+*Secure login page for existing users*
+
+### Developer Profiles
+![Developer List](assets/developer-list.png)
+*Browse and connect with other developers*
+
+![Create Profile](assets/create-profile.png)
+*Create your developer profile with detailed information*
+
+### Dashboard
+![Dashboard](assets/dashboard.png)
+*User dashboard showing profile information and actions*
+
+### Experience and Education
+![Add Experience](assets/add-experience.png)
+*Add your professional experience*
+
+![Add Education](assets/add-education.png)
+*Add your educational background*
+
+### Posts and Interactions
+![Create Post](assets/create-post.png)
+*Share your thoughts with the developer community*
+
+![Single Post View](assets/single-post.png)
+*View and interact with posts through comments and likes*
+
 ## Tech Stack
 
 - **Frontend**:
