@@ -69,9 +69,18 @@ npm install
 ```json
 {
     "mongoURI": "your_mongodb_uri",
-    "jwtSecret": "your_jwt_secret"
+    "jwtSecret": "your_jwt_secret",
+    "githubClientId": "your_github_client_id",
+    "githubSecret": "your_github_secret"
 }
 ```
+
+Note: You'll need to:
+- Create a MongoDB Atlas cluster and get your MongoDB URI
+- Create a random string for JWT Secret
+- Register a new GitHub OAuth application at https://github.com/settings/developers to get your GitHub credentials
+  - Set Homepage URL to `http://localhost:3000`
+  - Set Authorization callback URL to `http://localhost:3000/login`
 
 ## Running the Application
 
